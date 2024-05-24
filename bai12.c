@@ -1,29 +1,20 @@
 #include <stdio.h>
+#include <math.h>
 
-/*Cho biết tháng và năm, hãy in ra số ngày tương ứng có trong tháng đó. Chú ý tháng 2 của năm nhuận có 29 ngày.
- Năm nhuận là năm chia hết cho 400 hoặc (chia hết cho 4 và không chia hết cho 100)*/
+/*Nhập vào n nguyên dương không quá 10^6, tính và in tổng sau ra màn hình S=2+4+6+8+.....+2*n*/
 
 int main(){
-    int t,n;
-    scanf("%d %d", &t, &n);
-    if(t > 0 && t < 13 && n > 0){
-        if(t == 1 || t == 3 || t == 5 || t == 7 || t == 8 || t == 10 || t == 12){
-            printf("31\n");
-        }
-        else if(t == 4 || t == 6 || t == 9 || t == 11){
-            printf("30\n");
-        }
-        else{ 
-            if(t == 2 && (n % 400 == 0) || (n % 4 == 0 && n % 100 != 0)){
-            printf("29\n");
-            }
-            else{
-                printf("28\n");
-                }
+    long long n;
+    scanf("%lld", &n);
+    long long Tong = 0;
+    for (int i = 2; i <= 2*n; i++)
+    {       
+        if (i % 2 == 0)
+        {
+            Tong += i;
         }
     }
-    else{
-        printf("INVALID\n");
-    }
+    printf("%lld", Tong);
     return 0;
+
 }
