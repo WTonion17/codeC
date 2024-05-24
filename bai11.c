@@ -1,27 +1,17 @@
 #include <stdio.h>
+#include <math.h>
 
-/*Cho 3 cạnh a, b, c của một tam giác, nếu tam giác đã cho là tam giác đều thì in ra 1, tam giác cân thì in ra 2,
- tam giác vuông thì in ra 3, tam giác thường in ra 4, trường hợp tam giác nhập vào không hợp lệ thì in ra "INVALID"*/
+/*Tính tổng : S= -1 + 2 - 3 + 4 - 5 + ...... + (-1)^n*n*/
 
 int main(){
-    int a,b,c;
-    scanf("%d %d %d", &a, &b, &c);
-    if(a>0 && b > 0 && c > 0 && (a+b)>c && (a+c)>b && (b+c)>a){
-        if(a == b && b == c){
-            printf("1\n");
-        }
-        else if((a == b && a != c) || (a == c && a != b) || (b == c && b != a)){
-            printf("2\n");
-        }
-        else if((a*a + b*b == c*c) || (a*a +c*c == b*b) || (b*b + c*c == a*a)){
-            printf("3\n");
-        }
-        else{
-            printf("4\n");
-        }       
+    long long n;
+    scanf("%lld", &n);
+    long long Tong = 0;
+    for (int i = 1; i <= n; i++)
+    {       
+            Tong += (pow(-1,i) * i);
     }
-    else{
-        printf("INVALID\n");
-    }
+    printf("%lld", Tong);
     return 0;
+
 }

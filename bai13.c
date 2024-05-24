@@ -1,27 +1,20 @@
 #include <stdio.h>
+#include <math.h>
 
-/*Cho biết điểm kiểm tra Tin học của 1 em học sinh (2 con điểm hệ số 1, 1 con điểm hệ số 2, 1 con điểm hệ số 3).
- In ra Kết quả học tập môn Tin học của em đó. Nếu điểm tổng kết >=8 đạt kết quả Giỏi, <8 và >=6,5 đạt kết quả Khá,
-  <6,5 và >=5 đạt kết quả Trung Bình, <5 đạt kết quả Yếu.
-
-Gợi ý : ĐTB = tổng (điểm * hệ số) / (tổng hệ số)*/
+/*Nhập vào n nguyên dương không qua 10^6, tính và in tổng sau ra màn hình. S=1+3+5+7+.....+2*n-1*/
 
 int main(){
-    float a,b,c,d;
-    scanf("%f %f %f %f", &a, &b, &c, &d);
-    double DTB = (a + b + c*2 + d*3)/7;
-    if(DTB >= 8){
-        printf("Gioi\n");
+    long long n;
+    scanf("%lld", &n);
+    long long Tong = 0;
+    for (int i = 1; i <= 2*n-1; i++)
+    {       
+        if (i % 2 != 0)
+        {
+            Tong += i;
+        }
     }
-    else if(DTB < 8 && DTB >= 6.5){
-        printf("Kha\n");
-    }
-    else if(DTB < 6.5 && DTB >= 5){
-        printf("Trung binh\n");
-    }
-    else{
-        printf("Yeu\n");
-    }
-     
+    printf("%lld", Tong);
     return 0;
+
 }
